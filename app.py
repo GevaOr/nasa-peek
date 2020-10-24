@@ -85,7 +85,6 @@ def render_page():
     top_images = []
     max_images = 21
     query = request.args.get('query')
-    print(f'query: {query}')
     if query:
         image_search_url = f'https://images-api.nasa.gov/search?q={query}&media_type=image'
         results_json = requests.get(image_search_url).json()
