@@ -1,0 +1,361 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  background: rgb(25, 118, 228);
+  background: linear-gradient(
+    0deg,
+    rgba(25, 118, 228, 0.5494397588136817) 75%,
+    rgba(0, 0, 0, 0.7147058652562588) 100%
+  );
+  background: url("./media/nasa-background.jpg") fixed center no-repeat;
+  background-size: cover;
+  cursor: default;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  max-width: 95%;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  background: rgba(107, 107, 107, 0.349);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#title {
+  padding: 10px;
+  text-align: center;
+  font-family: "Righteous", Ariel, sans-serif;
+  font-size: 8em;
+  text-shadow: 0 0 26px white;
+}
+
+#title a:hover {
+  text-decoration: none;
+  color: black;
+  text-shadow: 0 0 26px rgb(218, 246, 255);
+}
+
+#title a {
+  text-decoration: none;
+  color: black;
+}
+
+nav {
+  width: 50%;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin-bottom: 50px;
+}
+
+.nav-link,
+a {
+  margin: auto;
+}
+
+#search-bar {
+  max-width: 70%;
+}
+
+#search-button {
+  background-color: rgba(23, 162, 184, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+}
+#search-button:hover {
+  background-color: rgb(19, 132, 150);
+  color: rgba(255, 255, 255, 1);
+}
+#search-results {
+  display: flex;
+  /* display: none; */
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: 1px transparent;
+  border-radius: 5px;
+  background-color: rgba(235, 246, 255, 0.582);
+  margin-bottom: 20px;
+}
+
+#search-items {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+  padding: 10px;
+}
+
+.card-text {
+  max-height: 12rem;
+  overflow-y: auto;
+}
+
+.card {
+  text-decoration: none;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 3px 10px 0 rgba(24, 20, 39, 0.3);
+}
+
+.card:hover {
+  text-decoration: none;
+  color: black;
+  background-color: rgba(243, 243, 243, 0.904);
+  box-shadow: 0 10px 15px 0 rgba(24, 20, 39, 0.3);
+}
+
+.card-img-top {
+  max-width: 100%;
+  height: 300px;
+}
+
+#load-more {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+#apod {
+  width: 100%;
+  background-color: rgba(235, 246, 255, 0.582);
+  margin: 30px;
+  border-radius: 0 0 5px 5px;
+}
+
+#apod-content {
+  padding: 7px;
+}
+
+#apod-title {
+  font-size: 2em;
+  text-shadow: -1px 1px 5px white;
+}
+
+#apod-copyright {
+  font-size: 1.1em;
+}
+
+#apod-description {
+  font-size: 1.2em;
+}
+
+#apod-video-cont {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+#apod-video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 5px 5px 0 0;
+}
+/* Rules to make the #apod-video responsive was taken from:
+http://www.purepresencecreative.com/blog/how-to-make-iframes-responsive-youtube-embeds-google-maps */
+
+#apod-img {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+#mars-weather {
+  background-color: rgba(235, 246, 255, 0.582);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 8px 3px;
+  margin-bottom: 30px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+#weather-title {
+  text-shadow: -1px 1px 5px white;
+}
+
+#seperator {
+  margin: 0;
+  margin-bottom: 15px;
+  width: 100%;
+  border: 2px solid rgba(78, 97, 109, 0.637);
+  border-radius: 50%;
+}
+
+#weather-card-container {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  justify-items: center;
+  grid-gap: 8px;
+  color: rgba(255, 255, 255, 0.808);
+}
+
+.weather-card {
+  padding: 12px;
+  font-size: 1.8em;
+  background-color: rgba(93, 93, 93, 0.685);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 200px;
+}
+
+.weather-card:hover {
+  background-color: rgba(93, 93, 93, 0.8);
+  color: rgba(255, 255, 255, 0.911);
+}
+
+.short-hover-trans {
+  transition: 0.2s;
+}
+
+.long-hover-trans {
+  transition: 0.2s;
+}
+
+.mars-sol {
+  font-weight: 900;
+  font-size: 1.1em;
+}
+
+.mars-sol:hover {
+  text-shadow: -1px 2px 10px rgba(255, 123, 0, 0.6);
+}
+
+.earth-day {
+  color: rgba(0, 0, 0, 0.589);
+}
+
+.earth-day:hover {
+  text-shadow: -1px 2px 10px rgba(255, 255, 255, 0.6);
+}
+
+.high:hover {
+  text-shadow: -1px 2px 10px rgba(255, 0, 0, 0.6);
+}
+
+.low:hover {
+  text-shadow: -1px 2px 10px rgba(0, 0, 255, 0.6);
+}
+
+.arrow-up-img {
+  width: 15px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+#to-top-btn {
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 940px) {
+  #weather-card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .weather-card {
+    width: 250px;
+    height: 250px;
+  }
+
+  nav {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #title {
+    font-size: 4em;
+  }
+
+  #search-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  #weather-card-container,
+  #search-items {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .weather-card {
+    width: 200px;
+    height: 200px;
+  }
+
+  #weather-title {
+    font-size: 1.6em;
+  }
+
+  #apod-description {
+    font-size: 1em;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  #search-bar {
+    max-width: 85%;
+  }
+
+  .nav-link {
+    background-color: rgba(0, 0, 0, 0.45);
+    color: white;
+    font-size: 0.65em;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  main {
+    width: 1600px;
+  }
+
+  #search-bar {
+    max-width: 650px;
+  }
+
+  #search-items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #to-top-btn {
+    font-size: 1.6em;
+  }
+
+  .arrow-up-img {
+    width: 20px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .card-img-top {
+    height: 450px;
+  }
+}

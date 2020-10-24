@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Righteous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source%20Sans%20Pro"
+    />
+    <link
+      href="{{ url_for('static', filename='styles.css') }}"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link
+      href="./static/media/nasa-favicon.svg"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <title>NASA Peek</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="title"><a class="long-hover-trans" href="/">NASA Peek</a></h1>
+    </header>
+    <main>
+      <nav>
+        <a
+          class="nav-link btn btn-outline-dark short-hover-trans"
+          href="#search-bar"
+        >
+          NASA Image Search
+        </a>
+        <a class="nav-link btn btn-outline-dark short-hover-trans" href="#apod">
+          APOD
+        </a>
+        <a
+          class="nav-link btn btn-outline-dark short-hover-trans"
+          href="#mars-weather"
+        >
+          Mars Weather
+        </a>
+      </nav>
+
+      <form id="search-bar" class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="NASA image search..."
+          id="search-input"
+          name="query"
+        />
+        <div class="input-group-append">
+          <input class="btn" type="submit" id="search-button" value="Search" />
+        </div>
+      </form>
+
+      {% if search_results_list%}
+      <div id="search-results">
+        <div id="search-items">
+          {% for item in search_results_list %}
+          <div class="card long-hover-trans">
+            <a href="{{item['img_url']}}" target="_blank">
+              <img
+                src="{{item['img_url']}}"
+                class="card-img-top"
+                alt="{{item['title']}}"
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">{{item['title'] | title}}</h5>
+              <p class="card-text">{{item['desc']}}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <div id="apod">
+        {% if apod_data['type'] == 'image'%}
+        <a href="{{apod_data['url']}}" target="_blank"
+          ><img
+            id="apod-img"
+            src="{{apod_data['url']}}"
+            alt="{{apod_data['title']}}"
+        /></a>
+        {% else %}
+        <div id="apod-video-cont">
+          <iframe
+            id="apod-video"
+            src="{{apod_data['url']}}"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          ></iframe>
+        </div>
+        {% endif %}
+        <div id="apod-content">
+          <h3 id="apod-title">{{apod_data['title'] | title}}</h3>
+          <h5 id="apod-copyright">{{apod_data['copyright'] | title}}</h5>
+          <p id="apod-description">{{apod_data['desc']}}</p>
+        </div>
+      </div>
+
+      <div id="mars-weather">
+        <h2 id="weather-title">Mars Weather (Last 4 days)</h2>
+        <hr id="seperator" />
+        <div id="weather-card-container">
+          {% for sol in sol_data %}
+          <div class="weather-card">
+            <div class="day">
+              <p class="mars-sol short-hover-trans">Sol {{sol['sol']}}</p>
+              <p class="earth-day short-hover-trans">
+                {{sol['date']}}<sup>{{sol['suffix']}}</sup>
+              </p>
+            </div>
+            <div class="temprature">
+              <p class="high short-hover-trans">High: {{sol['high']}}°C</p>
+              <p class="low short-hover-trans">Low: {{sol['low']}}°C</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <a href="#top" id="to-top-btn" class="btn btn-info">
+        Top
+        <img class="arrow-up-img" src="./static/media/go_up.svg" alt=" ^" />
+      </a>
+    </main>
+  </body>
+</html>
