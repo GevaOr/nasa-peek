@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\mr512\Desktop\Python Course\Projects\nasa-peek\nasa-peek-venv"
+VIRTUAL_ENV="C:\Users\mr512\Desktop\Python Course\Projects\Nasa Peek Website\nasa-peek\nasa-peek-venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
