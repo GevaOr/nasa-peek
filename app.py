@@ -78,7 +78,7 @@ def is_valid_image(item):
     return False
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def render_page():
     """Render the page"""
     #  IMAGE SEARCH  #
