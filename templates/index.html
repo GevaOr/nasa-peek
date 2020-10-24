@@ -70,16 +70,16 @@
         <div id="search-items">
           {% for item in search_results_list %}
           <div class="card long-hover-trans">
-            <a href="{{item['img_url']}}" target="_blank">
+            <a href="{{ item['img_url'] }}" target="_blank">
               <img
-                src="{{item['img_url']}}"
+                src="{{ item['img_url'] }}"
                 class="card-img-top"
-                alt="{{item['title']}}"
+                alt="{{ item['title'] }}"
               />
             </a>
             <div class="card-body">
-              <h5 class="card-title">{{item['title'] | title}}</h5>
-              <p class="card-text">{{item['desc']}}</p>
+              <h5 class="card-title">{{ item['title'] | title }}</h5>
+              <p class="card-text">{{ item['desc'] }}</p>
             </div>
           </div>
           {% endfor %}
@@ -89,27 +89,26 @@
 
       <div id="apod">
         {% if apod_data['type'] == 'image'%}
-        <a href="{{apod_data['url']}}" target="_blank"
+        <a href="{{ apod_data['url'] }}" target="_blank"
           ><img
             id="apod-img"
-            src="{{apod_data['url']}}"
-            alt="{{apod_data['title']}}"
+            src="{{ apod_data['url'] }}"
+            alt="{{ apod_data['title'] }}"
         /></a>
         {% else %}
         <div id="apod-video-cont">
           <iframe
             id="apod-video"
-            src="{{apod_data['url']}}"
-            frameborder="0"
+            src="{{ apod_data['url'] }}"
             allow="autoplay; fullscreen"
             allowfullscreen
           ></iframe>
         </div>
         {% endif %}
         <div id="apod-content">
-          <h3 id="apod-title">{{apod_data['title'] | title}}</h3>
-          <h5 id="apod-copyright">{{apod_data['copyright'] | title}}</h5>
-          <p id="apod-description">{{apod_data['desc']}}</p>
+          <h3 id="apod-title">{{ apod_data['title'] | title }}</h3>
+          <h5 id="apod-copyright">{{ apod_data['copyright'] | title }}</h5>
+          <p id="apod-description">{{ apod_data['desc'] }}</p>
         </div>
       </div>
 
@@ -120,14 +119,14 @@
           {% for sol in sol_data %}
           <div class="weather-card">
             <div class="day">
-              <p class="mars-sol short-hover-trans">Sol {{sol['sol']}}</p>
+              <p class="mars-sol short-hover-trans">Sol {{ sol['sol'] }}</p>
               <p class="earth-day short-hover-trans">
-                {{sol['date']}}<sup>{{sol['suffix']}}</sup>
+                {{ sol['date'] }}<sup>{{ sol['suffix'] }}</sup>
               </p>
             </div>
             <div class="temprature">
-              <p class="high short-hover-trans">High: {{sol['high']}}°C</p>
-              <p class="low short-hover-trans">Low: {{sol['low']}}°C</p>
+              <p class="high short-hover-trans">High: {{ sol['high'] }}°C</p>
+              <p class="low short-hover-trans">Low: {{ sol['low'] }}°C</p>
             </div>
           </div>
           {% endfor %}
