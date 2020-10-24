@@ -111,7 +111,7 @@ def render_page():
         sol_data.append(sol_dict)
 
     return render_template(
-        'index.html',
+        'index.j2',
         apod_data=apod_data,
         sol_data=sol_data,
         search_results_list=top_images
