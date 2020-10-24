@@ -26,7 +26,7 @@ def create_sol_dict(sol_json):
     sol_dict['high'] = math.ceil(sol_json['AT']['mx'])
     sol_dict['low'] = math.ceil(sol_json['AT']['mn'])
     sol_datetime = datetime.strptime(
-        sol_json['First_UTC'], '%Y-%m-%dT%H:%M:%S%z')
+        sol_json['First_UTC'].split('T')[0], '%Y-%m-%d')
     month = sol_datetime.strftime('%b')
     day, suffix = day_and_suffix(sol_datetime.day)
     sol_dict['date'] = f'{month} {day}'
@@ -78,7 +78,7 @@ def is_valid_image(item):
     return False
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def render_page():
     """Render the page"""
     #  IMAGE SEARCH  #
