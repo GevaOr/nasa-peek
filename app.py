@@ -12,7 +12,7 @@ API_KEY = 'DEMO_KEY'
 
 # Alternatively, you can use:
 # 'DEMO_KEY'
-# for 30 requests per hour and 50 requests per day.
+# for 30 requests per hour and 50 requests per day per API.
 
 
 app = Flask(__name__)
