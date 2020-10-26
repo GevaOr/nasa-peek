@@ -65,26 +65,30 @@
         </div>
       </form>
 
-      {% if search_results_list%}
-      <div id="search-results">
-        <div id="search-items">
+      {% if search_results_list %}
+          {% if search_results_list[0] == "empty" %}
+            <h1 class="title">No results found.</h1>
+          {% else %}
+        <div id="search-results">
+          <div id="search-items">
           {% for item in search_results_list %}
-          <div class="card long-hover-trans">
-            <a href="{{ item['img_url'] }}" target="_blank">
-              <img
-                src="{{ item['img_url'] }}"
-                class="card-img-top"
-                alt="{{ item['title'] }}"
-              />
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">{{ item['title'] | title }}</h5>
-              <p class="card-text">{{ item['desc'] }}</p>
+            <div class="card long-hover-trans">
+              <a href="{{ item['img_url'] }}" target="_blank">
+                <img
+                  src="{{ item['img_url'] }}"
+                  class="card-img-top"
+                  alt="{{ item['title'] }}"
+                />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">{{ item['title'] | title }}</h5>
+                <p class="card-text">{{ item['desc'] }}</p>
+              </div>
             </div>
-          </div>
           {% endfor %}
+          </div>
         </div>
-      </div>
+        {% endif %}
       {% endif %}
 
       <div id="apod">

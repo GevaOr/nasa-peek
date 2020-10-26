@@ -1,11 +1,12 @@
 from datetime import datetime
 import math
+import os
 
 from flask import Flask, render_template, request
 
 import requests
 
-API_KEY = 'DEMO_KEY'
+API_KEY = os.environ.get('NASA_API_KEY')
 # You can apply for an API key here:
 # https://api.nasa.gov/
 # This will give you up to 1,000 requests per hour.
@@ -52,6 +53,10 @@ def day_and_suffix(day):
 def get_top_images(results_json, n):
     """Get n image objects from the json file"""
     items = results_json['collection']['items']
+    if len(items) < n:
+        n = len(items)
+    if not items:
+        return ["empty"]
     top_items = []
     i = 0
     while len(top_items) < n:
