@@ -110,7 +110,8 @@ def render_page():
     #  MARS WEATHER  #
     insight_json = requests.get(insight_url).json()
     sol_data = []
-    for sol_num in insight_json['sol_keys'][:2:-1]:  # Iterates last 4 days
+    # Iterates last 4 days if exist
+    for sol_num in insight_json['sol_keys'][::-1][:4]:
         sol_dict = create_sol_dict(insight_json[sol_num])
         sol_dict['sol'] = sol_num
         sol_data.append(sol_dict)
